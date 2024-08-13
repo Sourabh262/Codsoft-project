@@ -1,48 +1,136 @@
-JAVA
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hero">
+        <nav>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThs7MlRhoaISmPD1HW63H4oCLuHLoqVzl2fw&s"class="logo">
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">PORTFOLIO</a></li>
+                <li><a href="#">SERVICES</a></li>
+                <li><a href="#">HIRE ME</a></li>
+            </ul>
+        </nav>
+        <div class="detel">
+            <h1>I,m Sourabh <span>Mishra</span></h1>
+            <p>This is my official website to showes all 
+                <br>Details and work experience web development
+            </p>
+            <a href="#">DOWNLOAD CV</a>
+        </div>
+        <div class="images">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC--kl3ZUkpOfxuiCMBnxR4Xo0e7mis3uAUZlf87NIBa6EUQqGsdHvd58TilrZe8TSiQE&usqp=CAU" class="shape">
+            <img src="https://ouch-cdn2.icons8.com/rfcrnhmWJgD0vEp4IQSFH9TcsmGS-SD8OG0znn9UPIY/rs:fit:368:1013/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvNjI0/LzZlNTNjMDg2LWE2/YjktNGI4Yy04N2Jj/LWMxODQ5NTgzZjNi/NC5zdmc.png" class="girl">
+        </div>
+    </div>
+</body>
+</html>
 
-import java.util.Random;
-import java.util.Scanner;
+CSS
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+.hero{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background:white;
+}
 
-public class NumberGuessingGame {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Random random = new Random();
-        int maxAttempts = 10;
-        char playAgain;
+nav{
+    display: flex;
+    width: 84%;
+    margin: auto;
+    padding: 20px;
+    justify-content: space-between;
+}
 
-        do {
-            int number = random.nextInt(100) + 1;
-            int attempts = 0;
-            boolean hasGuessedCorrectly = false;
+nav ul li{
+    font-size: 25px;
+    display: inline-block;
+    list-style: none;
+    margin: 20px 30px;
+}
 
-            System.out.println("Guess the number between 1 and 100. You have 10 attempts.");
+nav ul li a{
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;   
+}
 
-            while (attempts < maxAttempts) {
-                System.out.print("Enter your guess: ");
-                int guess = scanner.nextInt();
-                attempts++;
+nav ul li a:hover{
+    color: red;     
+}
 
-                if (guess < number) {
-                    System.out.println("Too low!");
-                } else if (guess > number) {
-                    System.out.println("Too high!");
-                } else {
-                    System.out.println("Congratulations! You guessed the number in " + attempts + " attempts.");
-                    hasGuessedCorrectly = true;
-                    break;
-                }
-            }
+.detel{
+    margin-left:8%;
+    margin-top:13%;
 
-            if (!hasGuessedCorrectly) {
-                System.out.println("Sorry, you've used all " + maxAttempts + " attempts. The number was " + number + ".");
-            }
+}
 
-            System.out.print("Do you want to play again? (y/n): ");
-            playAgain = scanner.next().charAt(0);
+.detel h1{
+    font-size: 80px;
+    color: #212121;
+    margin-bottom:20px;
 
-        } while (playAgain == 'y' || playAgain == 'Y');
+}
 
-        scanner.close();
-        System.out.println("Thank you for playing!");
-    }
+span{
+    color:orange;
+}
+
+.detel p{
+    font-size: 20px;
+    color: #555;
+    line-height:20px;
+}
+
+.detel a{
+    font-size: 20px;
+    background:#212121;
+    padding: 10px 18px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
+    display: inline-block;
+    margin: 30px 0;
+    border-radius: 5px;
+
+}
+
+.images{
+    width: 45%;
+    height: 80%;
+    position: absolute;
+    bottom: 0;
+    right: 100px;
+}
+
+.images img{
+    height: 100%;
+    position: absolute;
+    left:50%;
+    bottom:0;
+    transform: translatex(-50%);
+    transition:bottom 1s,left 1s;
+}
+
+.images:hover .shape{
+bottom: 40px;
+
+}
+
+.images:hover .girl{
+    left: 45%;
 }
